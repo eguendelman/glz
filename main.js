@@ -24,6 +24,7 @@ function setAudioSource(el, callback)
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(e) {
+        console.log(xhr);
         if (xhr.readyState == 4) {
             if(xhr.status == 200)
             {
