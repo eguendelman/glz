@@ -32,6 +32,7 @@ function setAudioSource(el, callback)
                 callback(true, now);
             } else {
                 console.log("did not get valid redirect");
+                console.log(xhr);
                 failedAttempts++;
                 if(failedAttempts >= MAX_ATTEMPTS) {
                     console.log("giving up");
