@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="shortcut icon" type="image/png" href="images/icon32.png">
     <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Avoid caching this page -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -15,13 +17,35 @@
 </head>
 <body>
 
+    <div align="center">
+        <span id="placeholder">LOADING...</span>
+        <audio id="audio" width="100%" controls style="display:none;">
+            <source src="" type="audio/mpeg">
+        </audio>
+    </div>
+
 <script src="strftime-min.js"></script>
 <script src="main.js"></script>
 <script>
+    function callback(success, d)
+    {
+        let audio = document.getElementById("audio");
+        let placeholder = document.getElementById("placeholder");
+        if(success) {
+            audio.style.display = "block";
+            //placeholder.style.display = "none";
+            placeholder.innerHTML = strftime("%Y/%m/%d @ %H:00", d);
+        } else {
+            placeholder.innerHTML = "Failed";
+        }
+    }
 
-    let url = getRedirectorURL();
-    console.log(url);
-    window.location.replace(url);
+    (function() {
+        
+        let el = document.getElementById("audio");
+        setAudioSource(el, callback);
+
+    })();
 
 </script>
 </body>
