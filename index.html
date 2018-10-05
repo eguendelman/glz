@@ -41,6 +41,8 @@
     }
 
     (function() {
+
+        fetch("https://api.bynetcdn.com/Redirector/glz/181005-01_News/PD", {method: 'HEAD', redirect: 'manual'}).then(response => console.log(response.headers));
         
         let el = document.getElementById("audio");
         setAudioSource(el, callback);
