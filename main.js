@@ -34,7 +34,7 @@ function findValidRedirect(now, failedAttempts, el, callback)
             {
                 console.log(data.location);
                 let redirect_url = data.location;
-                redirect_url = redirect_url.replace("http:","https:");
+                //redirect_url = redirect_url.replace("http:","https:");
                 console.log(redirect_url);
                 updateAudioElement(el, redirect_url);
                 callback(true, now);
