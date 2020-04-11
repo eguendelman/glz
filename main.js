@@ -4,7 +4,7 @@ var MAX_ATTEMPTS = 3;
 // This is a utility I had to write in order to get the redirect location
 // of a page.  I had trouble using traditional (client-side) methods 
 // because their https url redirects to http
-var HEADER_UTIL_URL = "https://scripts.augmented.life/utils/get_http_header?url="
+var HEADER_UTIL_URL = "https://scripts.eg42.net/utils/get_http_header?url="
 
 function getRedirectorURL(now)
 {
